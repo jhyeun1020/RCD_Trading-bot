@@ -2,4 +2,5 @@
 
 ![first plan](img/img.png)
 ![first plan](img/flowchart)
+![first plan](img/flowchart.jpg)
 ## test add 
