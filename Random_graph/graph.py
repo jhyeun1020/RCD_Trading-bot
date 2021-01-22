@@ -49,11 +49,7 @@ while(money > 0):
 
     before = dall
     poss = money/dall
-    possible = int(poss)
-
-    print("최대 구매 가능 주: {}".format(possible))
-
-    buy = int(input("몇 주를 구매하시겠습니까: "))
+    buy = int(poss)//2
     money = money - dall*buy
     gumae = dall*buy
     dall = app(dall)
