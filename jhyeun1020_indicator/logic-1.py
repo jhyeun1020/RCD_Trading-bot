@@ -8,7 +8,7 @@ ohlc = binance.fetch_ohlcv('BTC/USDT','1d') # 날짜, 시가, 고가, 저가, �
 for i in ohlc: # 모든 날짜 데이터를 데이트타임 타입에서 읽기 쉽게 변경
     i[0] = datetime.fromtimestamp(i[0]/1000).strftime('%Y-%m-%d %H:%M:%S')
  # 리스트로 가져온 ohlcv 정보를 데이터 프레임으로 전환
- # 데이터프레임의 각 열을 일기 쉽게 인덱싱
+ # 데이터프레임의 각 열을 기 쉽게 인덱싱
 df = pd.DataFrame(ohlc,columns=['date','open','high','low','close','volume'])
 
 
@@ -27,7 +27,7 @@ df['bull'] = df['open'] > df['ma5']
 df['ror'] = np.where((df['high']>df['target'])&df['bull'],
                      df['close']/df['target'],1)
 
-# cumpord() 메소드로 ror 행의 모든 값을 곱함 -> 총 수익률
+# cumpord() 메소드로 ror 열의 모든 값을 곱함 -> 총 수익률
 df['hpr'] = df['ror'].cumprod()
 # MDD 계산
 df['dd'] = (df['hpr'].cummax() - df['hpr']) / df['hpr'].cummax() * 100
