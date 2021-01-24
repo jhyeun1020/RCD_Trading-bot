@@ -13,6 +13,6 @@ df = pd.DataFrame(ohlc,columns=['date','open','high','low','close','volume'])
 df['range'] = (df['high']-df['low']) * 0.5
 # range 변수를 보기 쉽게 한칸 내림
 df['range_shift1'] = df['range'].shift(1)
-# 변동성 돌파 전략 목표가를 계산하기 위해 shift() 메서드를 사용하여 현재 싯가에 전날의 range 값을 더함
+# 변동성 돌파 전략 목표가를 계산하기 위해 shift() 메서드를 사용하여 현재 시가에 전날의 range 값을 더함
 df['target'] = df['open'] + df['range'].shift(1)
 df.to_excel('BTC_USDT.xlsx')
